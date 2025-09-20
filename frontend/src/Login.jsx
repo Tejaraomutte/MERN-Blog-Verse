@@ -1,37 +1,44 @@
-import React from 'react'
+import NavBar from "./NavBar"
+import { Eye } from 'lucide-react';
+import { EyeOff } from 'lucide-react';
+function Login() {
+    
+    return (
+        <>
+          <NavBar/>
+            <div className="flex flex-col items-center justify-center bg-blue-50 ">
+              
+                <form className="flex flex-col border-1 w-1/3 py-3 mt-10 rounded-2xl items-center gap-5 bg-white min-he" >
+                    <h1 className="font-bold text-2xl ">Sign In</h1>
+                    <h4 className="text-semibold">Access your account</h4>
+                    <div className="w-[90%] flex flex-col gap-3">
+                        <p className="text-md text-gray-600 font-semibold">Email:</p>
+                        <input type="email" placeholder="Sample@gmail.com" className="border-1 w-full border-gray-300 py-2 rounded-4xl px-2 focus:outline-none focus:border-gray-700" />
 
-const Login = () => {
-  return (
-    <div className='w-screen flex flex-col items-center'>
-      <div className='w-[90%] md:w-1/3  flex  flex-col items-center mt-10 gap-2 border-1 border-gray-300  rounded-2xl shadow-2xl'>
-       <h1 className='mt-5 text-xl font-bold'>Sign In</h1>
-       <p className='text-sm text-gray-700'>Access your account</p>
-       <form action="" className='w-[80%] my-5'>
-        <div className='w-[95%] mb-4'>
-            <p className='text-sm text-gray-700 font-semibold pb-1.5 '>Email Address</p>
-            <input className='border-1 border-gray-300 bg-gray-50 w-full  rounded-md py-3 px-3 focus:outline-none focus:border-black text-sm focus:border-1.8 duration-200' type="text" placeholder='✉ sample@gmail.com' />
-        </div>
-        <div className='w-[95%] '>
-            <p className='text-sm text-gray-700 font-semibold pb-1.5'>Password</p>
-            <input className='border-1 border-gray-300 bg-gray-50 w-full  rounded-md py-3 px-3 focus:outline-none focus:border-black focus:border-1.8 text-sm duration-200' type="text" placeholder='🔒 sample123' />
-        </div >
-        <div className=' hover:flex justify-between w-full mt-4'>
-            <div className='flex   gap-1'>
-                <input type="checkbox" />
-                <p className='text-sm text-gray-800 font-semibold hidden'>Remember me</p>
-            </div>
-            <div className=''>
-                <p className='text-sm text-blue-600 font-semibold hover:cursor-pointer'>Forgot Password?</p>
-            </div>
-        </div>
-        <button className='hover:flex w-full mt-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 duration-200'>Sign In</button>
-        <div className='w-full flex justify-center my-4 border-1 border-gray-200 '></div>
+                    </div>
+                    <div className="w-[90%] flex flex-col gap-3 relative ">
+                        <p className="text-md text-gray-600 font-semibold">Email:</p>
+                        <input type="password" placeholder="sample123 " className="border-1 w-full border-gray-300 py-2 rounded-4xl px-2 focus:outline-none focus:border-gray-700" />
+                        <p className="absolute bottom-3 right-3">👁</p>
+                    </div>
+                    <div className="flex gap-40 w-[90%]">
+                        <div className="flex">
+                            <input type="checkbox" />
+                            <p>Remember me</p>
+                        </div>
+                        <p className="text-blue-400 font-semibold  hover:underline cursor-pointer">Forget password?</p>
+                    </div>
+                    <div className="w-[90%] border-1 bg-blue-500 rounded-4xl px-2 py-3 text-center  hover:bg-blue-700">
+                        <p className="text-white">Sign In</p>
+                    </div>
 
-        <p className='text-sm text-center text-gray-700'>Don't have an account?<span className='text-blue-600 font-semibold hover:cursor-pointer'>Create one here</span></p>
-       </form>
-      </div>
-    </div>
-  )
+                    <div className="border-1 border-gray-200 w-[90%]"></div>
+                    <p>
+                        Don't have an account?<span className="text-blue-400 font-semibold hover:underline cursor-pointer">Create One here</span>
+                    </p>
+                </form>
+            </div>
+        </>
+    )
 }
-
 export default Login
