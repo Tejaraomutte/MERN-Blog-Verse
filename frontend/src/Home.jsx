@@ -62,10 +62,10 @@ function Home() {
                 <div className="flex flex-wrap mt-5 w-full pb-5 gap-10 justify-center items-center ">
                     {/* </div><div className="w-1/3 h-1/3 border-1 border-gray-700 shadow-2xs flex  flex-col justify-center py-6"> */}
                     {object.map((item) => (
-                        <div className="w-[26%] h-[27%] border-1 border-gray-300 shadow-2xs flex  flex-col justify-center items-center  rounded-2xl relative  hover:shadow-2xl ">
+                        <div className=" h-[27%] border-1 lg:w-[25%] sm:w-[70%]  border-gray-300 shadow-2xs flex flex-col justify-center items-center  rounded-2xl relative  hover:shadow-2xl ">
 
                             <div key={item.id}>
-                                <img src={item.img} alt="Loading image" className="w-full h-1/3 rounded-t-2xl transition-transform duration-300  hover:scale-102 " />
+                                <img src={item.img} alt="Loading image" className="w-full object-fill h-1/3 rounded-t-2xl transition-transform duration-300  hover:scale-102 " />
                                 <p className=" bg-blue-500 px-2 py-1 text-white m-auto rounded-3xl text-center absolute top-4 left-4 ">Technology</p>
                                 <button  onClick={() => alert("This page has been saved")} className=" bg-white rounded-full w-4 absolute top-4 right-4" >⇲</button>
                                 <div className="flex gap-3 py-5 px-3">
