@@ -22,11 +22,14 @@ const SignUp = () => {
         password: "",
         confirmPassword: ""
     })
+    const [isLoading,setIsLoading]=useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const handleSubmit = (event) => {
+        setIsLoading(true);
         event.preventDefault();
         let newErrors = {}
         if (!formData.fullName) {
@@ -45,15 +48,24 @@ const SignUp = () => {
         }
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setIsLoading(false);
         } else {
-            setSuccess("Account Created Sucessfully")
+            setTimeout(() => {
+                setSuccess("Account Created Sucessfully")
+                setFormData({
+                    fullName: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: ""
+                })
+                setIsModalOpen(true);
+                setIsLoading(false);
+            },3000)
+
+
         }
-        setFormData({
-            fullName: "",
-            email: "",
-            password: "",
-            confirmPassword: ""
-        })
+
+
         // if(!formData.fullName || !formData.email || !formData.password || !formData.confirmPassword){
         //     setError("Please fill all the required fields")
         // }else if(formData.password !== formData.confirmPassword){
@@ -160,11 +172,22 @@ const SignUp = () => {
                     </div>
                     {error && <p class="text-red-500">{error}</p>}
                     {success && <p class="text-green-500">{success}</p>}
-                    <button type="submit" className="w-[90%] bg-purple-500 py-3 text-white font-semibold rounded-xl cursor-pointer flex justify-center items-center gap-2"> <CircleUser className="" /> <p>Create Account</p></button>
+                    <button type="submit" className="w-[90%] bg-purple-500 py-3 text-white font-semibold rounded-xl cursor-pointer flex justify-center items-center gap-2"> <CircleUser className="" /><p> {isLoading?"Creating...":"CreateAccount"}</p></button>
                     <div className="border-[0.5px] border-gray-400 w-[90%] mt-4"></div>
                     <p className="text-gray-700 font-semibold">Aldready have an Account?<Link to="/login" className="text-purple-500 font-semibold">Sign In Here</Link></p>
                     <Link to="/home" className="text-gray-700 font-semibold py-3 w-[90%] rounded-xl cursor-pointer text-center hover:bg-gray-200">Back to Home</Link>
                 </form>
+                {isModalOpen && <div className='fixed flex justify-center items-center h-dvh w-dvw text-center border-2 p-5'>
+                    <div className="absolute h-dvh w-dvw bg-black opacity-[50%] "></div>
+                    <div className="border-2 w-[50%] bg-white border-gray-500 text-center z-10  p-5">
+                        <p className="text-xl font-bold">Hello!Welcome to Blog Verse</p>
+                        <p className="mb-4">Your account has been created successfully.</p>
+                        <div className="flex justify-center gap-5">
+                            <Link to="/login" className="px-5 py-3 mt-5 bg-blue-500 text-white-200 rounded">Login</Link>
+                            <button onClick={() => setIsModalOpen(false)} className='px-5 py-3 mt-5 rounded bg-gray-200'>Close</button>
+                        </div>
+                    </div>
+                </div>}
             </div>
         </>
     )
