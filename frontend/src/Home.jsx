@@ -10,7 +10,7 @@ function Home() {
         para: 'Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from setup to advanced techniques for modern web development.',
 
         read: '7 min read'
-        
+
     }, {
         id: 2,
         name: 'Tejasathvika',
@@ -20,7 +20,7 @@ function Home() {
         para: 'Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from setup to advanced techniques for modern web development.',
 
         read: '7 min read'
-        
+
     }, {
         id: 3,
         name: 'Tejasathvika',
@@ -57,9 +57,9 @@ function Home() {
     }]
     return (
         <>
-         
-            <div className="flex min-h-screen flex-col justify-center items-center ">   
-                <NavBar/>
+
+            <div className="flex min-h-screen flex-col justify-center items-center ">
+                <NavBar />
                 <h1 className="font-bold text-4xl mb-7">Welcome to BlogVerse</h1>
                 <h1 className="text-gray-500 text-xl text-center mb-7">Discover amazing stories, insights, and ideas from  our community of <br />writers.<span className="text-blue-500 hover:underline cursor-pointer">Sign in</span> to create your own posts and save your favorites.
                 </h1>
@@ -71,7 +71,7 @@ function Home() {
                             <div key={item.id}>
                                 <img src={item.img} alt="Loading image" className="w-full object-fill h-1/3 rounded-t-2xl transition-transform duration-300  hover:scale-102 " />
                                 <p className=" bg-blue-500 px-2 py-1 text-white m-auto rounded-3xl text-center absolute top-4 left-4 ">Technology</p>
-                                <button  onClick={() => alert("This page has been saved")} className=" bg-white rounded-full w-4 absolute top-4 right-4" >⇲</button>
+                                <button onClick={() => alert("This page has been saved")} className=" bg-white rounded-full w-4 absolute top-4 right-4" >⇲</button>
                                 <div className="flex gap-3 py-5 px-3">
                                     <img src={item.img} alt="no profile" className="w-[50px] h-[50px] rounded-full object-cover " />
                                     <div>
